@@ -1,11 +1,12 @@
-#!/usr/bin/env runhaskell
+module MorphDisambiguator where
+
 import PGF
 import System.Environment
 import Control.Applicative
 import Data.Maybe
 import Data.List
 
-main = do
+main' = do
     args <- getArgs
     if length args == 2 then do
         [p, l] <- getArgs

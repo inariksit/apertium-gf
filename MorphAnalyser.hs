@@ -1,11 +1,12 @@
-#!/usr/bin/env runhaskell
+module MorphAnalyser where
+
 import PGF
 import System.Environment
 import Control.Applicative
 import Data.Maybe
 import Data.List
 
-main = do
+main' = do
     args <- getArgs
     if length args == 2 then do
         [p, l] <- getArgs
@@ -50,4 +51,4 @@ buildTags [] = ""
 buildTags (x:xs) = "<" ++ x ++ ">" ++ buildTags xs 
 
 parseString :: PGF -> Language -> String -> String
-parseString p l s = foldl (\acc x -> acc ++ x) "" (map (initStream p l s) (words s))
+parseString p l s = foldl (++) "" (map (initStream p l s) (words s))
