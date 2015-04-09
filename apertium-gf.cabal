@@ -17,7 +17,7 @@ cabal-version:       >=1.10
 
 executable apertium-gf
   main-is:             Main.hs
-  -- other-modules:       MorphAnalyser.hs, MorphDisambiguator.hs
+  other-modules:       MorphAnalyser, MorphDisambiguator
   -- other-extensions:    
   build-depends:       base >=4.6 && <4.7, gf >=3.6 && <3.7
   -- hs-source-dirs:      
@@ -31,6 +31,7 @@ executable profiling
     -threaded
     -prof
     -fprof-auto
+    -rtsopts
     -caf-all
     "-with-rtsopts=-N -p -s -h -i0.1"
   build-depends:
